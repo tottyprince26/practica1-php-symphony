@@ -1,0 +1,111 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos de la barra de navegación */
+  nav {
+    background-color: #333;
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  nav a:hover {
+    background-color: white;
+    color: #333;
+  }
+  
+  /* Estilos del contenido principal */
+  main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin-top: 0;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: 20px 0;
+    padding: 20px;
+  }
+  
+  .card h2 {
+    margin-top: 0;
+  }
+  
+  .card p.amount {
+    font-size: 32px;
+    margin: 10px 0;
+  }
+  .card p.description {
+    margin: 0;
+    color: #999;
+    font-size: 14px;
+  }
+  .card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .card li {
+    padding: 5px 0;
+  }
+  .loading {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .spinner {
+    border: 8px solid #ccc;
+    border-top-color: #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loading p {
+    font-size: 20px;
+    margin-left: 10px;
+  }

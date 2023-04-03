@@ -1,20 +1,127 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello DashboardController!{% endblock %}
-
 {% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard Elegante</title>
+  <meta charset="utf-8">
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos de la barra de navegación */
+nav {
+  background-color: #333;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px;
+}
+
+nav a:hover {
+  background-color: white;
+  color: #333;
+}
+
+/* Estilos del contenido principal */
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card p.amount {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.card p.description {
+  margin: 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card li {
+  padding: 5px 0;
+}
 </style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
+</head>
+<body>
+  <nav>
     <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/practica1-php-symphony/practica1/src/Controller/DashboardController.php'|file_link(0) }}">src/Controller/DashboardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/practica1-php-symphony/practica1/templates/dashboard/index.html.twig'|file_link(0) }}">templates/dashboard/index.html.twig</a></code></li>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Ventas</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Clientes</a></li>
+      <li><a href="#">Configuración</a></li>
     </ul>
-</div>
+  </nav>
+  <main>
+    <h1>Dashboard</h1>
+    <p>Bienvenido al panel de control de tu sitio web.</p>
+    <div class="card">
+      <h2>Resumen de Ventas</h2>
+      <p class="amount">$5,000</p>
+      <p class="description">Ventas totales del mes</p>
+    </div>
+    <div class="card">
+      <h2>Productos Populares</h2>
+      <ul>
+        <li>Producto 1</li>
+        <li>Producto 2</li>
+        <li>Producto 3</li>
+        <li>Producto 4</li>
+        <li>Producto 5</li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <p>Derechos Reservados © 2023</p>
+  </footer>
+</body>
+</html>
 {% endblock %}

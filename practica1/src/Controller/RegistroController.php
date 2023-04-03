@@ -23,7 +23,7 @@ class RegistroController extends AbstractController
         $form = $this -> createForm(RegistroFormType::class, $user);
         $form-> handleRequest($req);
         if($form -> isSubmitted() && $form -> isValid()){
-            $user -> setPassword($uphai -> hashPassword($user, $form -> password -> getData()));
+            $user -> setPassword($uphai -> hashPassword($user, $form -> get('password') -> getData()));
             $emi -> persist($user);
             $emi -> flush();    
             return $uai -> authenticateUser($user, $aca, $req);
