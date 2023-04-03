@@ -12,9 +12,9 @@ class SecurityController extends AbstractController
     #[Route('/login', name: 'app_login')]
     public function index(AuthenticationUtils $au): Response
     {
-        if($this->getUser()){
+        if($this->getUser() !== null || $this->getUser() !== ' '){
             return $this->redirectToRoute('app_dashboard');
-            
+
         }
         $error = $au->getLastAuthenticationError();
         $lastUsername = $au->getLastUsername();
