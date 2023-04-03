@@ -1,20 +1,107 @@
-{% extends 'base.html.twig' %}
+'{#{% extends 'base.html.twig' %}
 
-{% block title %}Hello RegistroController!{% endblock %}
+{% block title %}REGISTRATE!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h1>REGISTRATE!</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/practica1-php-symphony/practica1/src/Controller/RegistroController.php'|file_link(0) }}">src/Controller/RegistroController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/practica1-php-symphony/practica1/templates/registro/index.html.twig'|file_link(0) }}">templates/registro/index.html.twig</a></code></li>
-    </ul>
-</div>
+{{ form_start(form) }}
+{{form_row(form.email)}}
+{{form_row(form.password,
+    {'attr': {'placeholder': 'Contraseña'}
+    }
+    )}}
+{{form_row(form.agreeTerms)}}
+{{ form_widget(form) }}
+<button type="submit" class="btn btn-primary">Registrarse</button>
+{{ form_end(form) }}
 {% endblock %}
+#}'<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTRATE!</title>
+    <style>
+        /* Estilos generales */
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #444444;
+        }
+        
+        /* Estilos del formulario */
+        form {
+            margin: 0 auto;
+            width: 50%;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px #dddddd;
+        }
+        
+        input[type="email"], input[type="password"], label {
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #444444;
+        }
+        
+        input[type="password"] {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+         input[type="text"] {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+        
+        input[type="checkbox"] {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        button[type="submit"] {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #428bca;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #3071a9;
+        }
+        
+    </style>
+</head>
+<body>
+    {% block body %}
+    <h1>REGISTRATE!</h1>
+
+    <form>
+        {{ form_start(form) }}
+        <label for="{{ form.email.vars.id }}">Correo electrónico</label>
+        {{ form_widget(form.email, {'attr': {'placeholder': 'Correo electrónico'}}) }} 
+        <label for="{{ form.password.vars.id }}">Contraseña</label>
+        {{ form_widget(form.password, {'attr': {'placeholder': 'Contraseña'}}) }}
+        {{ form_widget(form.agreeTerms) }} {{ form_label(form.agreeTerms) }}
+        <button type="submit">Registrarse</button>
+        {{ form_end(form) }}
+    </form>
+    {% endblock %}
+</body>
+</html>

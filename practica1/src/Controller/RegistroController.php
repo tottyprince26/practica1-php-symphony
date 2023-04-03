@@ -17,7 +17,7 @@ class RegistroController extends AbstractController
 {
     #[Route('/registro', name: 'app_registro')]
     public function register(Request $req, UserPasswordHasherInterface $uphai, UserAuthenticatorInterface $uai,
-    AppCustomAuthenticator $aca, EntityManagerInterface $emi): Response
+    AppCustomAuthenticator $aca, EntityManagerInterface $emi) : Response
     {
         $user = new User();
         $form = $this -> createForm(RegistroFormType::class, $user);
@@ -25,8 +25,11 @@ class RegistroController extends AbstractController
         if($form -> isSubmitted() && $form -> isValid()){
             $user -> setPassword($uphai -> hashPassword($user, $form -> password -> getData()));
             $emi -> persist($user);
-            $emi -> flush();
+            $emi -> flush();    
             return $uai -> authenticateUser($user, $aca, $req);
         }
+        return $this -> render('registro/index.html.twig', [
+            'form' => $form -> createView()
+        ]);
     }
 }
